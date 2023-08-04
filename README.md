@@ -15,5 +15,10 @@ sunshine2k.de/coding/javascript/crc/crc_js.html : choose CRC-16 - Custom - Polyn
 
 # If you want to use the manual code 
 Just download the design and the testbench then create your work library via Modelsim then vcom *.vhd then vsim tb_crc.vhd and run 150000ps. 
+![image](https://github.com/EagleStephen/CRC16_VHDL/assets/102225620/e6f851b1-5c0f-4c94-a7fa-6fe215f8fa25)
 
-
+# Automate using do file
+Paste these commands into a .do file and use do filename.do in modelsim
+vcom crc.vhd
+vcom tb_crc.vhd
+run 150000 ps
