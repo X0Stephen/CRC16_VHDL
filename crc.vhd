@@ -6,12 +6,12 @@ use ieee.numeric_std.all;
 entity crc is 
 port ( clk: in std_logic;
        data_in: in std_logic_vector(7 downto 0);             
-       crc_out: out std_logic_vector(15 downto 0)
+       crc_genibus:out std_logic_vector(15 downto 0)
       );
 end crc;
 
 architecture crc_arch of crc is     
-signal crc_final : std_logic_vector(15 downto 0);
+signal crc_x25 : std_logic_vector(15 downto 0);
 function reverse_vector(v: in std_logic_vector)
 return std_logic_vector is
     variable result: std_logic_vector(v'RANGE);
@@ -50,7 +50,7 @@ begin
 end;
 begin 
 
-    crc_out <= not crc16((data_in), x"FFFF");
-    crc_final <=  reverse_vector(not crc16(reverse_vector(data_in), x"FFFF"));
+    crc_genibus <= not crc16((data_in), x"FFFF");                                  -- CRC16 GENIS
+    crc_x25 <=  reverse_vector(not crc16(reverse_vector(data_in), x"FFFF")); -- CRC16 X25
 
 end architecture crc_arch; 
