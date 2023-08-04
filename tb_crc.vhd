@@ -12,17 +12,17 @@ COMPONENT crc
 PORT(
         clk: std_logic;
      data_in : IN  std_logic_vector(7 downto 0);
-     crc_out : OUT  std_logic_vector(15 downto 0)
+     crc_genibus : OUT  std_logic_vector(15 downto 0)
     );
 END COMPONENT;
 
 
 --Inputs
 signal tb_clk : std_logic := '0';
-signal tb_data_in : std_logic_vector(7 downto 0) := (others => '0');
+signal tb_data_in : std_logic_vector(7 downto 0) := "11111111";
 
 --Outputs
-signal tb_crc_out : std_logic_vector(15 downto 0);
+signal tb_crc_genibus : std_logic_vector(15 downto 0);
 
 -- Clock period definitions
 constant clk_period : time := 10 ns;
@@ -33,7 +33,7 @@ BEGIN
 uut: crc PORT MAP (
          clk => tb_clk,
       data_in => tb_data_in,
-      crc_out => tb_crc_out
+      crc_genibus => tb_crc_genibus
     );
 
 -- Clock process definitions
@@ -48,9 +48,8 @@ end process;
 -- Stimulus process
 stim_proc: process
 begin       
-  -- hold reset state for 100 ns.
-  wait for 100 ns;  
-
+  -- hold reset state for 20 ns.
+  wait for 20 ns;  
 
   -- insert stimulus here
 
