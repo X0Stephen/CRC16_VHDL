@@ -1,5 +1,5 @@
 # CRC16_VHDL
-CRC16_VHDL GENISBUS : Polynome: x"1021, ini x"FFFF" finale x"FFFF". 
+CRC16_VHDL GENISBUS : Polynome: x"1021, ini x"FFFF" finale x"FFFF". (You need to config these values in the manual code, on the package it's already done)
 # If you want to use as a package 
 1st use the correct library : use work.pkg_crc16.all
 2nd create a signal to store the calculated CRC
