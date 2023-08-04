@@ -69,5 +69,4 @@ begin
     wait;
     
 end process;
-wait for 0; 
 END;
